@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block cssjs %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/movie_detail.css') }}">
+{% endblock %}
+
+{% block title %}
+Детали фильма
+{% endblock %}
+
+{% block main %}
+<ul class="menu">
+    <li class= "menu_item"><a class="menu_link" href="/">Главная</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/movies/">Фильмы</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/pod/">Подборки</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/search/">Поиск</a></li>
+</ul>
+<hr class="horizontal">
+<div class="all">
+    <h2>Отзывы к фильму</h2><br>
+    <h3>{{movie.iat[mas[0],1]}}</h3><br><br><br><br>
+    {% for i in range(mas|length) %}
+        <section class="review">
+            <div class="italic">
+                <h4>Пользователь: {{movie.iat[mas[i],3]}}</h4><br>
+                <h4>Дата: {{movie.iat[mas[i],4 ]}}</h4><br>
+                {% if movie.iat[i,6] == "Good" %}
+                <h4>Общая оценка: Отлично</h4><br>
+                {% elif movie.iat[i,6] == "Neutral" %}
+                <h4>Общая оценка: Нормально</h4><br>
+                {% else %}
+                <h4>Общая оценка: Плохо</h4><br>
+                {% endif %}
+
+                {% if movie.iat[i,7] != 0.0 %}
+                <h4>Рейтинг: {{movie.iat[i,7]}}</h4>
+                {% else %}
+                <h4>Рейтинг: -</h4>
+                {% endif %}
+            </div>
+            <p>{{movie.iat[mas[i],8]}}</p>
+        </section>    
+    {% endfor %}
+</div>
+
+{% endblock %}

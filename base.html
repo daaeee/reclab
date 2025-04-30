@@ -1,0 +1,114 @@
+<!doctype html>
+
+<!--Здесь должны находится неизменные части, которые будут присутствовать на каждой из страниц-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="{{ url_for('static', filename='js/base.js') }}" defer></script>
+    {% block cssjs %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1 class = "central">Развлекалка</h1>
+
+
+        <button class ="account" id="openBtnEntry" data-modal-open="modal1">
+            <img class="ac_photo" src = "/static/css/images/account.svg">
+            <a class ="entry"> Вход </a>
+        </button>
+        <dialog class="modal" data-modal="modal1">
+            <div class="modal__inner">
+                <form class="form">
+                    <h2 class="boxB-reg">Авторизация</h2>
+                    <p>Войдите, чтобы создавать, публиковать и сохранять подборки и не только</p>
+                    <div class="boxB-input-nickname">
+                        <label class="input-txt-label" for="nickname" >Имя</label>
+                        <input class="input-txt" type="text" id="nickname" name="nickname">
+                    </div>
+                    <div class="boxB-input-password">
+                        <label class="input-txt-label" for="password" >Пароль</label>
+                        <input class="input-txt" type="text" id="password" name="password">
+                    </div>
+                    <a class = "boxB-regtxt" id="openBtnReg" data-modal-open="modal2" formmethod="dialog"> Зарегистрироваться</a>
+                    <a class = "boxB-forgottxt"> Восстановить пароль</a>
+                    <button class="boxB-regBtn" id="closeBtn" type="submit" >
+                        Войти
+                    </button>
+                    <button class="boxB-closeBtnReg" id="closeBtnReg" data-js-header-dialog-close>
+                        Закрыть
+                    </button>
+                </form>
+            </div>
+
+        </dialog>
+
+                
+        <dialog class="modal" data-modal="modal2">   
+            <form class="form" method="POST" >
+                <h2 class="boxB-reg">Регистрация</h2>
+                <p>Здесь вы можете зарегистрироваться на сервисе, чтобы публиковать и сохранять подборки</p>
+                <div class="boxB-input-nickname">
+                    <label class="input-txt-label" for="nickname" >Имя</label>
+                    <input class="input-txt" type="text" id="nickname" name="username">
+                </div>
+                <div class="boxB-input-password">
+                    <label class="input-txt-label" for="password" >Пароль</label>
+                    <input class="input-txt" type="password" id="password" name="password">
+                </div>
+                <div class="boxB-input-password">
+                    <label class="input-txt-label" for="passwordrepeat" >Повторите пароль</label>
+                    <input class="input-txt" type="password" id="passwordrepeat" name="pw_confirm">
+                </div>
+                {% for msg in get_flashed_messages() %}
+                <div class="flash">{{msg}}</div>
+                {% endfor %}
+                <button class="boxB-regBtn" id="closeBtn" type="submit" data-js-header-dialog-close >
+                    Зарегистрироваться
+                </button>
+                    <button class="boxB-closeBtnReg" id="closeBtnReg" formmethod="dialog"  data-js-header-dialog-close>
+                        Закрыть
+                    </button>
+                </form>
+            </div>
+
+        </dialog>
+
+        <div class="accountmenu" data-js-accountMenu>
+            <div class="boxM-menuNickname">SUM</div>
+            <a class="boxM-menudesired" data-modal-open="modal3">Желаемое</a>
+            <a class="boxM-menufavorites" href="/favorites/">Избранное</a>
+            <a class="boxM-menuMycollections" href="/podborki/">Мои подборки</a>
+        </div>
+
+        <dialog class="modal" data-modal="modal3">
+            <div class="modal__inner">
+                <div class="boxM-input-category">
+                    <select name="category">
+                        <option disabled selected>Категория</option>
+                        <option value="movies">Фильмы</option>
+                        <option value="books">Книги</option>
+                        <option value="games">Настольные игры</option>
+                    </select>
+                </div>
+                <div class="wishlist">Билли Эллиот (2000)</div>
+                <div class="wishlist">Блеф (1976)</div>
+                <div class="wishlist">Гамлет (1964)</div>
+                <div class="wishlist">Добро пожаловать, или Посторонним вход воспрещен (1964)</div>
+                <div class="wishlist">Крепкий орешек (1988)</div>
+                <div class="wishlist">Леди и бродяга (1955)</div>
+                <div class="wishlist">Огни большого города (1931)</div>
+            </div>
+
+        </dialog>
+        
+    </header>
+    {% block main %}
+    {% endblock %}
+</body>
+</html>
+

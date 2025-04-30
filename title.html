@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block cssjs %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
+{% endblock %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+
+{% block main %}
+
+<ul class="menu">
+    <li class= "menu_item">
+        <a class="menu_link" href="/podborki/">Мои подборки</a>
+    </li>
+    <li class= "menu_item">
+        <a class="menu_link" href="/favorites/">Избранное</a>
+    </li>
+    <li class= "menu_item">
+        <a class="menu_link" href="/movies/">Фильмы</a>
+    </li>
+    <li class= "menu_item">
+        <a class="menu_link" href=#>Настольные игры</a>
+    </li>
+ </ul>
+<hr class="horizontal">
+
+<div class="basic">
+    <form method="post", accept-charset="utf-8">
+        <div class="search">
+            <input class="search-txt" type="text" id="movname" name="movname" placeholder="Поиск">
+            <img class="search-btn" src = "/static/css/images/micro.svg">
+        </div>
+    <br>
+    </form>
+    <div class="image_list">
+    <div class= "item">
+        <img src="/static/css/images/p1.png" alt ="Тут должна быть красивая картинка">
+        <figcaption href=#>Новинки кино</figcaption>
+    </div>
+    <div class= "item">
+        <a href="/podborka/" class = "podborka">
+            <img src="/static/css/images/p2.png" alt ="Тут должна быть красивая картинка">
+            <figcaption >Популярные экранизации литературы</figcaption>
+        </a>
+    </div>
+    <div class= "item">
+        <img src="/static/css/images/p3.png" alt ="Тут должна быть красивая картинка">
+        <figcaption href=#>Настольные игры для небольшой компании</figcaption>
+    </div>
+</div>
+
+{% endblock %}

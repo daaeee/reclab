@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block cssjs %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/movies.css') }}">
+{% endblock %}
+
+{% block title %}
+Фильмы
+{% endblock %}
+
+{% block main %}
+<button class ="account1" data-js-accountBtn >
+    <img class="ac_photo1" src = "/static/css/images/account.svg">
+    <a class ="entry1"></a>
+</button>
+
+<ul class="menu">
+    <li class= "menu_item"><a class="menu_link" href="/">Главная</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/pod/">Подборки</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/search/">Поиск</a></li>
+</ul>
+<hr class="horizontal">
+<br><br><br><br>
+<div class="basic">
+    <div>
+    {% for i in range(movie|length) %}
+    <div>
+        <a class="button" href="/movies/{{movie.iat[i,0]}}">{{movie.iat[i,0]}}</a>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+
+{% endblock %}

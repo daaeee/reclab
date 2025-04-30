@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block cssjs %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/podborka.css') }}">
+{% endblock %}
+
+{% block title %}
+Подборки
+{% endblock %}
+
+{% block main %}
+<ul class="menu">
+    <li class= "menu_item"><a class="menu_link" href="/">Главная</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/movies/">Фильмы</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/pod/">Подборки</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/search/">Поиск</a></li>
+</ul>
+<hr class="horizontal">
+<h2>Популярные экранизации литературы</h2>
+    <div class="images">
+    <div class = podb>
+    <img src="/static/css/images/pp1.jpg" alt="упс"> 
+    <div class = text> 
+    <h3>Евгений Онегин</h3> 
+    <p>Жанр: Мелодрама<br> 
+        По произведению: А.С.Пушкина "Евгений Онегин"<br> 
+        Год выпуска: 2024 <br> 
+        Краткое описание:<br> 
+        Известная любовная история Татьяны и Евгения, переписку которых можно и не учить. 
+        Доказательство,что любовь сложна,но прекрасна. Остальное можете узнать,насладившись фильмом 
+    </p> 
+    </div> 
+    </div> 
+    <div class = podb>
+    <img src="/static/css/images/pp2.jpg" alt="упс"> 
+    <div class = text> 
+    <h3>Гордость и предубеждения</h3> 
+    <p> 
+        Жанр: драма <br> 
+        По произведению: Джейн Остин "Гордость и предубеждения"<br> 
+        Год выпуска: 2005 <br> 
+        Краткое описание:<br> 
+        Выгодно выдать замуж дочерей - главная задача мисис Беннет, да ещё и пятерых<br> 
+        Но одна из них против этого, и что же из этого выйдет смотрите в этом прекрасном фильме 
+    </p> 
+    </div>
+    </div> 
+    <div class = podb>
+    <img src="/static/css/images/pp3.jpg" alt="упс"> 
+    <div class = text> 
+    <h3>Джейн Эйр</h3> 
+    <p>  
+        Жанр: Мелодрама <br> 
+        По произведению: Шарлотты Бронте "Джейн Эйр" <br> 
+        Год выпуска: 2011 <br> 
+        Краткое описание:<br> 
+        Любовь между разными сословиями?<br> 
+        Да ещё и с большой разницей в возрасте...<br> 
+        Будет ли эта вечная любовь или вечная мука узнаете в фильме 
+    </p>
+    </div> 
+    </div> 
+</div>
+{% endblock %}

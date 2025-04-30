@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block cssjs %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/favorites.css') }}">
+
+{% endblock %}
+
+{% block title %}
+Новый
+{% endblock %}
+
+{% block main %}
+<button class ="account1" data-js-accountBtn >
+    <img class="ac_photo1" src = "/static/css/images/account.svg">
+    <a class ="entry1"></a>
+</button>
+
+<ul class="menu">
+    <li class= "menu_item"><a class="menu_link" href="/">Главная</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/podborki/editor/">Редактор</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/search/">Поиск</a></li>
+</ul>
+<hr class="horizontal">
+
+<div class="basic">
+    <h2> Избранное </h2>
+    <div class="boxM-input-category">
+        <select name="category">
+            <option disabled selected>Категория</option>
+            <option value="movies">Фильмы</option>
+            <option value="books">Книги</option>
+            <option value="games">Настольные игры</option>
+        </select>
+    </div>
+
+    <div class="list">
+        <div class="container">
+            <div class="box-name">Новый год, Ёлка</div>
+            <div class="box-shorttxt">
+                <h3>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                    Maxime iusto consectetur ipsa veritatis recusandae porro facere voluptatem, 
+                    asperiores aperiam fuga, incidunt vel culpa, dolorum qui corrupti in quaerat voluptatibus nisi.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                    Maxime iusto consectetur ipsa veritatis recusandae porro facere voluptatem, 
+                    asperiores aperiam fuga, incidunt vel culpa, dolorum qui corrupti in quaerat voluptatibus nisi.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                    Maxime iusto consectetur ipsa veritatis recusandae porro facere voluptatem, 
+                    asperiores aperiam fuga, incidunt vel culpa, dolorum qui corrupti in quaerat voluptatibus nisi.
+                </h3>
+            </div>
+            <div class="box-nickname">Пользователь: Сидоров</div>
+            <div class="box-date">09.01.2025</div>
+            <button class="box-delete" type="button" section-deleteBtn>Удалить</button>
+        </div>
+    </div>
+    <div class="list">
+        <div class="container">
+            <div class="box-name">Такого вы еще не видели</div>
+            <div class="box-shorttxt">
+                <h3>
+                    Университеты играют ключевую роль в современном обществе, служа не только местом обучения,
+                    но и центром культуры, науки и инноваций. Они являются важным фактором развития страны,
+                    формируют умные и компетентные специалистов, способствуют прогрессу науки и технологий.
+                </h3>
+            </div>
+            <div class="box-nickname">Пользователь: Иванов</div>
+            <div class="box-date">09.01.2025</div>
+            <button class="box-delete" type="button" section-deleteBtn>Удалить</button>
+        </div>
+    </div>
+    <div class="list">
+        <div class="container">
+            <div class="box-name">Снято одним дублем, какого это?</div>
+            <div class="box-shorttxt">
+                <h3>
+                    Сегодня университеты являются крупными организациями, включающими в себя различные факультеты,
+                    исследовательские институты и научные центры. Они предлагают широкий спектр программ, охватывающих
+                    различные области знаний - от классических гуманитарных дисциплин до cutting-edge технологий.
+                    Университеты не только передают традиционное образование, но и активно участвуют в инновационных
+                    проектах, способствуя развитию науки и техники. Многие университеты имеют партнерства с бизнес-сообществом,
+                    что позволяет студентам получать практический опыт и готовиться к карьерному росту.
+                </h3>
+            </div>
+            <div class="box-nickname">Пользователь: Петров</div>
+            <div class="box-date">09.01.2025</div>
+            <button class="box-delete" type="button" section-deleteBtn>Удалить</button>
+        </div>
+    </div>
+
+</div>
+    
+
+
+
+
+{% endblock %}

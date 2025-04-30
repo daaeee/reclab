@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block cssjs %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+{% endblock %}
+
+{% block title %}
+Поиск
+{% endblock %}
+
+{% block main %}
+<ul class="menu">
+    <li class= "menu_item"><a class="menu_link" href="/">Главная</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/movies/">Фильмы</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/pod/">Подборки</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/search/">Поиск</a></li>
+</ul>
+<hr class="horizontal">
+
+<main class="basic">
+    <form method="post", accept-charset="utf-8">
+        <div class="search">
+            <input class="search-txt" type="text" id="movname" name="movname" placeholder="Поиск">
+            <img class="search-btn" src = "/static/css/images/micro.svg">
+        </div>
+        <br>
+        
+    </form>
+    
+    <section>
+        {% if movie|length > 0 %}
+        <h2 class="movies">Похожие фильмы: </h2>
+            {% for i in range(movie|length) %}
+            <div>
+                <a class="button" href="/movies/{{movie[i]}}">{{movie[i]}}</a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <h2>Пожалуйста, введите название фильма</h2>
+        {% endif %}
+    </section>
+</main>
+
+
+{% endblock %}

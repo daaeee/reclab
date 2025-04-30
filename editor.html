@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block cssjs %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/editor.css') }}">
+<script src="{{ url_for('static', filename='js/editor.js') }}" defer></script>
+{% endblock %}
+
+{% block title %}
+Новый
+{% endblock %}
+
+{% block main %}
+<button class ="account1" data-js-accountBtn >
+    <img class="ac_photo1" src = "/static/css/images/account.svg">
+    <a class ="entry1"></a>
+</button>
+
+<ul class="menu">
+    <li class= "menu_item"><a class="menu_link" href="/">Главная</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/favorites/">Избранное</a></li>
+    <li class= "menu_item"><a class="menu_link" href="/search/">Поиск</a></li>
+</ul>
+<hr class="horizontal">
+
+<main class="basic" data-js-main>
+    <form class="container", method="post", accept-charset="utf-8" data-js-main-container>
+        
+        <div class="box-editor"> Создай новую подборку </div>
+        <div class="box-input-title">
+            <label class="input-txt-label" for="podname">Название подборки</label>
+            <input class="input-txt" type="text" id="podname" name="podname" required style="font-size: 30px;">
+        </div>
+        <div class="box-input-category">
+            <select name="category">
+                <option disabled selected>Категория</option>
+                <option value="movies">Фильмы</option>
+                <option value="books">Книги</option>
+                <option value="games">Настольные игры</option>
+            </select>
+        </div>
+        <div class="box-input-introduction">
+            <label class="input-txt-label" for="introduction">Вступление</label>
+            <textarea class="input-txt" id="introduction" name="introduction"  rows="3" cols="80"></textarea>
+        </div>
+        <hr class="box-hr">
+        <section class="box-form-container-1" data-js-main-container-section>
+            <div class="box-input-objname">
+                <label class="input-txt-label" for="objname-1" section-objnamelabel>Название объекта</label>
+                <input class="input-txt" type="text" id="objname-1" name="objname-1" section-objnameinput>
+            </div>
+            <div class="box-input-comname">
+                <label class="input-txt-label" for="comname-1" section-comnamelabel>Заголовок комментария</label>
+                <input class="input-txt" type="text" id="comname-1" name="comname-1" section-comnameinput>
+            </div>
+            <div class="box-input-comment">
+                <label class="input-txt-label" for="comment-1" section-commentlabel>Собственно комментарий</label>
+                <textarea class="input-txt" id="comment-1" name="comment-1"  rows="5" cols="80" section-commentinput></textarea>
+            </div>
+            <button class="box-delete" type="button" section-deleteBtn>Удалить</button>
+        </section>
+        <div class="box-input-introduction">
+            <label class="input-txt-label" for="conclusion">Заключение</label>
+            <textarea class="input-txt" id="conclusion" name="conclusion"  rows="3" cols="80"></textarea>
+        </div>
+        <hr class="box-hr">
+        
+        <button class="box-save" type="submit">Сохранить</button>
+        <button class="box-add" type="button" data-js-main-container-add>Добавить</button>
+        <button class="box-complete" type="submit">Завершить</button>
+        
+    </form>
+</main>
+
+
+{% endblock %}
